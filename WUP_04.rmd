@@ -41,7 +41,7 @@ basicCN <- ggplot(wordData,aes(x=DEGREE,y=WORDSUM))
 basicCN + geom_boxplot()
 ```
 
-This box plots shows that the median for graduate scored the highest at 11.5 approximately 
+This box plots shows that the median for graduates scored the highest at 11.5 approximately. Students that have less then a high school education scored a median 8.5 approxiamtely. 
 
 
 ### Numerical Descriptive Results
@@ -59,10 +59,10 @@ The median of the graduates is the highest at 11 Wordsum and the mean is also th
 model1 <- aov(WORDSUM~DEGREE,data=wordData)
 summary.aov(model1)
 ```
-The P value is 0.000236. This is the probability 
+The P value is 0.000236. This is the probability of getting the results that we found if the NULL hypothsis is TRUE
 ```{r}
 #we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
-par(mar = c(3, 8.7, 2, 2))
+par(mar = c(3, 16, 2, 2))
 plot(TukeyHSD(model1),las=2)
 ```
  
@@ -70,3 +70,5 @@ plot(TukeyHSD(model1),las=2)
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+We reject the NULL hypothesis because the p value is very low. We found that there is a difference between less then high school graduates and the students with degrees. 
+
