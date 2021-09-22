@@ -20,7 +20,7 @@ wordData=read_csv("GSScsv.csv")
 
 The data is in the file GSScsv.csv and came from the 2018 General Social Survey.  The question to answer is to resolve this hypothesis.  
 $H_0$ There is no difference between the average score on the WORDSUM test and level of schooling DEGREE  
-$H_a$ There is a significant difference in average score on the WORDSUM test between at least two levels of DEGREE  
+$H_A$ There is a significant difference in average score on the WORDSUM test between at least two levels of DEGREE  
 
 # Methods
 
@@ -59,13 +59,15 @@ The median of the graduates is the highest at 11 Wordsum and the mean is also th
 model1 <- aov(WORDSUM~DEGREE,data=wordData)
 summary.aov(model1)
 ```
-The P value is 0.000236. This is the probability of getting the results that we found if the NULL hypothsis is TRUE
+The P value is 0.000236. This is the probability of getting the results that we found if the NULL hypothesis is TRUE. We reject the NULL hypothesis 
 ```{r}
 #we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
 par(mar = c(3, 16, 2, 2))
 plot(TukeyHSD(model1),las=2)
 ```
- 
+
+This tukey test shows that the only two groups that show a significant difference in Wordsum scores average is High School-Graduate and LT High School-Gradute because the line does not touch the 0.
+
 
 # Discussion and Conclusion
 
